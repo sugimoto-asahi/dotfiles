@@ -32,6 +32,8 @@ if (args.command == "install"):
                     util.run(install.alacritty.install, "Installing alacritty")
                 case "neovim":
                     util.run(install.neovim.install, "Installing neovim")
+                case "lldb-dap":
+                    util.run(install.lldbdap.install, "Installing lldb-dap")
 
 if (args.command == "config"):
     if not args.programs:
