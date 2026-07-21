@@ -54,3 +54,11 @@ if vim.fn.isdirectory(undodir) == 0 then
 end
 
 vim.opt.undodir = undodir
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.treesitter.foldexpr()"
+
+-- Start editing buffers with all folds open
+vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = "auto"

@@ -13,3 +13,14 @@ vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Close all other 
 vim.keymap.set("n", "<leader>go", function()
 	vim.diagnostic.open_float()
 end, { desc = "Open diagnostic in floating window" })
+
+vim.keymap.set("n", "/", "/\\v", { desc = "Always use very magic regex" })
+
+vim.keymap.set("n", "<Esc>", function()
+	vim.print("here")
+	if vim.v.hlsearch then
+		vim.cmd("nohlsearch")
+	else
+		return "<Esc>"
+	end
+end, { desc = "Hide search highlights if they are active, otherwise default Esc behavior", expr = true })

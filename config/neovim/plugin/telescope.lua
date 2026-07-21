@@ -12,8 +12,8 @@ vim.keymap.set("n", "<leader>fa", function()
 end, { desc = "Find files (including ignored)" })
 
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
-vim.keymap.set("n", "<leader>fs", builtin.lsp_workspace_symbols, { desc = "Workspace symbols" })
-vim.keymap.set("n", "<leader>fls", builtin.lsp_document_symbols, { desc = "Document symbols" })
+vim.keymap.set("n", "<leader>fS", builtin.lsp_workspace_symbols, { desc = "Workspace symbols" })
+vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Document symbols" })
 vim.keymap.set("n", "<leader>gx", builtin.diagnostics, { desc = "Diagnostics" })
 
 -- lsp related
@@ -21,13 +21,13 @@ vim.keymap.set("n", "<leader>gd", function()
 	builtin.lsp_definitions({
 		-- jump_type = "tab",
 	})
-end, opts)
+end)
 
 vim.keymap.set("n", "<leader>gD", function()
 	builtin.lsp_implementations({
 		jump_type = "tab",
 	})
-end, opts)
+end)
 
 vim.keymap.set("n", "<leader>gu", builtin.lsp_references, { desc = "References" })
 
