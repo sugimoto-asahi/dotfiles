@@ -63,9 +63,19 @@ end
 ---@class ClangdInitializeResult: lsp.InitializeResult
 ---@field offsetEncoding? string
 
+-- @see https://clangd.llvm.org/faq#how-do-i-fix-errors-i-get-when-opening-headers-outside-of-my-project-directory
+-- clangd runs into issues when parsing files outside the projeoct directory.
+-- A common issue is finding header files included by the external headers
+-- This is caused because the include directories where clangd looks for
+-- headers is derived from the compile commands, and external headers don't
+-- have access to the compile commands.
+-- To remedy this, we share the compilation database (which sits at our project root)
+-- with the clangd clients running in external directories (clangd creates
+-- new instances when jumping to external files, verified with :checkhealth lsp).
+
 ---@type vim.lsp.Config
 return {
-	cmd = { "clangd" },
+	cmd = { "clangd", "--compile-commands-dir=" .. vim.fn.getcwd() },
 	filetypes = { "c", "c.doxygen", "cpp", "cpp.doxygen", "objc", "objcpp", "cuda" },
 	root_markers = {
 		".clangd",
