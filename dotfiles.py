@@ -49,3 +49,6 @@ if (args.command == "config"):
                     util.run(configure.alacritty.configure, "Refreshing alacritty config")
                 case "neovim":
                     util.run(configure.neovim.configure, "Refreshing neovim config")
+                case _:
+                    print("Invalid program specified")
+
