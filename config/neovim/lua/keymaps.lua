@@ -17,7 +17,6 @@ end, { desc = "Open diagnostic in floating window" })
 vim.keymap.set("n", "/", "/\\v", { desc = "Always use very magic regex" })
 
 vim.keymap.set("n", "<Esc>", function()
-	vim.print("here")
 	if vim.v.hlsearch then
 		vim.cmd("nohlsearch")
 	else
