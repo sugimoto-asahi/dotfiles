@@ -73,7 +73,6 @@ vim.api.nvim_create_autocmd("LspAttach", { group = "UserConfig", callback = lsp_
 vim.lsp.enable({
 	"lua_ls",
 	"ts_ls",
-	"copilot",
 	"clangd",
 })
 
