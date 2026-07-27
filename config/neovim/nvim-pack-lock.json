@@ -9,6 +9,14 @@
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "dapc": {
+      "rev": "4e12fed0e00392a18a80918e1d142e52f74b9c33",
+      "src": "https://github.com/sugimoto-asahi/dapc"
+    },
+    "dapc-ui": {
+      "rev": "65cab1604f26f781d9479522a1d2f12aef62578e",
+      "src": "https://github.com/sugimoto-asahi/dapc-ui"
+    },
     "diffview-plus.nvim": {
       "rev": "62dc5adf4e77489a2a6d3bf36ef6e4ac5738b634",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
