@@ -21,7 +21,7 @@ def set_dotfiles_dir(path):
 # Programs
 ZELLIJ_WIN_DOWNLOAD = "https://github.com/zellij-org/zellij/releases/download/v0.44.3/zellij-x86_64-pc-windows-msvc.zip"
 ALACRITTY_WIN_DOWNLOAD = "https://github.com/alacritty/alacritty/releases/download/v0.17.0/Alacritty-v0.17.0-portable.exe"
-NEOVIM_WIN_DOWNLOAD = "https://github.com/neovim/neovim/releases/download/v0.12.3/nvim-win64.zip"
+NEOVIM_WIN_DOWNLOAD = "https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip"
 
 # Config
 ALACRITTY_CONFIG_SRC = "config/alacritty/alacritty.toml"

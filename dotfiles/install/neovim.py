@@ -18,7 +18,7 @@ def install():
     shutil.copytree(config.TEMP_DIR / "nvim-win64", ISOLATED_BIN_DIR, dirs_exist_ok=True)
 
     # wrapper since nvim.exe wants to execute in its own directory
-    ps1_content = f".\"{config.BIN_DIR}\\nvim\\bin\\nvim.exe\""
+    ps1_content = f".\"{config.BIN_DIR}\\nvim\\bin\\nvim.exe\" @args"
 
     with open(f"{config.BIN_DIR}/nvim.ps1", "w") as file:
         file.write(ps1_content)
