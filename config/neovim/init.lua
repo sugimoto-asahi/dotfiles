@@ -8,13 +8,16 @@ local dev = os.getenv("NVIM_DEV")
 if dev then
 	if dev == "DEV" then
 		vim.g.mode = "DEV"
+		local dev_plugins = {}
 		local dev_config_dir = vim.fs.normalize("~/.config/nvim-dev")
 		vim.opt.runtimepath:append(dev_config_dir)
 		local dev_config = require("config")
 		-- add dev paths
 		for name, dir in pairs(dev_config) do
 			vim.opt.runtimepath:append(dir)
+			table.insert(dev_plugins, name)
 		end
+		vim.g.dev_plugins = dev_plugins
 		vim.notify("Config: DEV")
 	elseif dev == "RELEASE" then
 		vim.g.mode = "RELEASE"

@@ -79,6 +79,35 @@ local root_markers2 = {
 	"selene.yml",
 }
 
+-- The lua language server indexes subdirectories of any directory specified in
+-- workspace.library. Since this is the case, when we are in dev mode, we want
+-- to make sure that all the LSP is able to see are our dev repositories, instead
+-- of plugin code in packpath. Doing this will avoid problems such as the LSP
+-- complaining about multiple definitions, and incorrect go-to-definitions.
+-- To make this work, we use the names of plugins
+-- that we have current dev repositories for, and remove them from workspace.library.
+-- We also remove the data stdpath, since they are parent directories of
+-- where plugin code sits.
+-- @see https://luals.github.io/wiki/settings/#workspacelibrary
+local data_dir = vim.fn.stdpath("data")
+local plugin_base_dir = vim.fs.joinpath(data_dir, "site/pack/core/opt/")
+local remove_list = { data_dir .. "/site" }
+if vim.g.mode == "DEV" then
+	for _, plugin in ipairs(vim.g.dev_plugins) do
+		local plugin_dir = plugin_base_dir .. plugin
+		table.insert(remove_list, plugin_dir)
+	end
+end
+
+local runtime_files = vim.api.nvim_get_runtime_file("", true)
+local filtered = vim.iter(runtime_files)
+	:filter(function(item)
+		return not vim.tbl_contains(remove_list, item)
+	end)
+	:totable()
+
+vim.print(filtered)
+
 ---@type vim.lsp.Config
 return {
 	cmd = { "lua-language-server" },
@@ -91,7 +120,7 @@ return {
 			codeLens = { enable = true },
 			hint = { enable = true, semicolon = "Disable" },
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = filtered,
 			},
 			diagnostics = {
 				disable = { "unused-function" },
