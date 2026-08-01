@@ -106,8 +106,6 @@ local filtered = vim.iter(runtime_files)
 	end)
 	:totable()
 
-vim.print(filtered)
-
 ---@type vim.lsp.Config
 return {
 	cmd = { "lua-language-server" },
