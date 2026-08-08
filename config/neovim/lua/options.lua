@@ -57,7 +57,7 @@ vim.opt.undodir = undodir
 
 -- Folding
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.treesitter.foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Start editing buffers with all folds open
 vim.opt.foldlevelstart = 99
