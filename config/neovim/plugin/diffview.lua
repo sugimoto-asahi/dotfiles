@@ -1,8 +1,8 @@
 vim.pack.add({ "https://github.com/dlyongemallo/diffview-plus.nvim" })
 
 local hooks = {
-	-- disable formatting in diffivew, because we don't want to format on save
-	-- after making changes to the indexs
+	-- disable formatting in diffview, because we don't want to format on save
+	-- after making changes to the index
 	view_enter = function(view)
 		vim.b.disable_autoformat = true
 	end,
