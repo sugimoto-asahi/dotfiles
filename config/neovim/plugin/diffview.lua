@@ -4,11 +4,9 @@ local hooks = {
 	-- disable formatting in diffivew, because we don't want to format on save
 	-- after making changes to the indexs
 	view_enter = function(view)
-		vim.g.disable_autoformat = true
-		vim.g.disable_autoformat = true
+		vim.b.disable_autoformat = true
 	end,
 	view_leave = function(view)
-		vim.g.disable_autoformat = false
 		vim.b.disable_autoformat = false
 	end,
 }
